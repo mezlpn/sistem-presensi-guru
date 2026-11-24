@@ -1,0 +1,89 @@
+/* ============================================================
+   css/style.css
+   Wilayah NABHAN. Ini hanya tampilan dasar supaya halaman
+   terbaca rapi. Silakan ubah sesukanya.
+
+   Class-class yang dipakai di HTML (supaya Nabhan tidak bingung):
+   - .navbar, .menu, .sapaan        : menu atas
+   - .konten                        : pembungkus isi halaman
+   - .notif (.sukses / .error)      : kotak pemberitahuan
+   - .tombol-absen, .btn-hadir, .btn-izin, .btn-sakit, .btn-undo
+   - .kartu-ringkas, .kartu (.hadir/.izin/.sakit/.total/.belum)
+   - .tabel, .tabel-detail, .tabel-wrap
+   - .form, .filter, .btn, .btn-hapus, .form-inline
+   - .status-hadir, .status-izin, .status-sakit : warna status di tabel
+   - .halaman-login, .kotak-login   : halaman login
+   - .pilihan-role, .pilihan (.admin/.guru) : tombol pilihan di index.php
+   ============================================================ */
+
+* { box-sizing: border-box; }
+body { font-family: Arial, sans-serif; margin: 0; background: #f4f6f8; color: #222; }
+
+.navbar { background: #1e3a5f; color: #fff; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+.navbar a { color: #fff; margin-left: 14px; text-decoration: none; }
+.navbar a:hover { text-decoration: underline; }
+
+.konten { max-width: 900px; margin: 20px auto; padding: 0 16px; }
+
+.notif { background: #e8f0fe; border-left: 4px solid #1e3a5f; padding: 10px 14px; margin: 12px 0; border-radius: 4px; }
+.notif.sukses { background: #e6f4ea; border-color: #2e7d32; }
+.notif.error { background: #fdecea; border-color: #c62828; }
+
+.tombol-absen { display: flex; gap: 12px; margin: 16px 0; }
+.tombol-absen button { flex: 1; padding: 18px; font-size: 18px; border: 0; border-radius: 8px; color: #fff; cursor: pointer; }
+.btn-hadir { background: #2e7d32; }
+.btn-izin { background: #f9a825; }
+.btn-sakit { background: #c62828; }
+.tombol-absen button:disabled { background: #bbb; cursor: not-allowed; }  /* tombol beku */
+.btn-undo { padding: 10px 14px; border: 1px solid #c62828; background: #fff; color: #c62828; border-radius: 6px; cursor: pointer; }
+
+.kartu-ringkas { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0; }
+.kartu { flex: 1; min-width: 110px; background: #fff; padding: 14px; border-radius: 8px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,.1); }
+.kartu strong { font-size: 26px; }
+
+.tabel-wrap { overflow-x: auto; }
+.tabel { width: 100%; border-collapse: collapse; background: #fff; margin-top: 12px; }
+.tabel th, .tabel td { padding: 9px 10px; border-bottom: 1px solid #ddd; text-align: left; }
+.tabel th { background: #1e3a5f; color: #fff; }
+.tabel-detail { background: #fff; border-collapse: collapse; margin: 12px 0; }
+.tabel-detail th, .tabel-detail td { padding: 8px 14px; border-bottom: 1px solid #eee; text-align: left; }
+
+.status-hadir { color: #2e7d32; font-weight: bold; }
+.status-izin { color: #f9a825; font-weight: bold; }
+.status-sakit { color: #c62828; font-weight: bold; }
+
+.form { background: #fff; padding: 18px; border-radius: 8px; max-width: 480px; }
+.form label { display: block; margin-top: 12px; font-weight: bold; }
+.form input, .form select { width: 100%; padding: 8px; margin-top: 4px; }
+.form button, .btn, .filter button { padding: 9px 16px; background: #1e3a5f; color: #fff; border: 0; border-radius: 6px; cursor: pointer; text-decoration: none; display: inline-block; margin-top: 14px; }
+.filter { margin: 12px 0; display: flex; gap: 8px; }
+.filter button { margin-top: 0; }
+.form-inline { display: inline; }
+.btn-hapus { background: none; border: 0; color: #c62828; cursor: pointer; padding: 0; font-size: inherit; }
+
+.halaman-login { display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+.kotak-login { background: #fff; padding: 28px; border-radius: 10px; width: 100%; max-width: 360px; box-shadow: 0 2px 8px rgba(0,0,0,.15); }
+.kotak-login label { display: block; margin-top: 12px; font-weight: bold; }
+.kotak-login input[type=text], .kotak-login input[type=email], .kotak-login input[type=password] { width: 100%; padding: 9px; margin-top: 4px; }
+.kotak-login .ingat { font-weight: normal; }
+.kotak-login button { width: 100%; margin-top: 16px; padding: 10px; background: #1e3a5f; color: #fff; border: 0; border-radius: 6px; cursor: pointer; }
+
+/* halaman pilihan role (index.php) */
+.pilihan-role { display: flex; flex-direction: column; gap: 12px; margin-top: 16px; }
+.pilihan { display: block; text-align: center; padding: 14px; border-radius: 8px; color: #fff; text-decoration: none; background: #1e3a5f; }
+.pilihan.guru { background: #2e7d32; }
+
+/* Tambahan untuk validasi izin/sakit & bukti foto */
+.box-bukti { background: #fff; padding: 14px 16px; border-radius: 8px; margin: 12px 0 16px; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+.box-bukti label { display: block; margin-top: 10px; font-weight: bold; }
+.box-bukti label:first-child { margin-top: 0; }
+.box-bukti textarea, .box-bukti input[type=file] { width: 100%; padding: 8px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; background: #fff; }
+
+.badge { display: inline-block; padding: 3px 8px; border-radius: 999px; font-size: 12px; font-weight: bold; }
+.badge-pending { background: #fff8e1; color: #b26a00; border: 1px solid #f9a825; }
+.badge-disetujui { background: #e6f4ea; color: #2e7d32; border: 1px solid #2e7d32; }
+.badge-ditolak { background: #fdecea; color: #c62828; border: 1px solid #c62828; }
+
+.bukti-img { max-width: 140px; max-height: 100px; object-fit: cover; border-radius: 6px; border: 1px solid #ddd; display: block; margin-top: 4px; }
+.btn-setuju { padding: 5px 10px; background: #2e7d32; color: #fff; border: 0; border-radius: 5px; cursor: pointer; font-size: 12px; }
+.btn-tolak { padding: 5px 10px; background: #c62828; color: #fff; border: 0; border-radius: 5px; cursor: pointer; font-size: 12px; }
